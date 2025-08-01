@@ -12,8 +12,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: corepack enable
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - run: pnpm install
       - run: NUXT_APP_BASE_URL=/mrjohn6774.github.io/ pnpx nuxt build --preset github_pages
       - name: Upload artifact
