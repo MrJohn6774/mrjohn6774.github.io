@@ -1,12 +1,15 @@
 <template>
-  <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center">
-    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="close" />
+  <div
+    v-if="open"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+  >
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="close" />
 
     <div
-      class="relative mx-4 max-w-lg rounded-2xl bg-white p-6 shadow-lg sm:mx-0"
+      class="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-8 shadow-xl"
     >
       <button
-        class="absolute right-3 top-3 text-2xl font-semibold text-gray-400 hover:text-gray-600"
+        class="absolute right-4 top-4 text-2xl font-semibold text-gray-400 hover:text-gray-600"
         @click="close"
         aria-label="Close modal"
       >
@@ -18,11 +21,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  open: Boolean,
-});
+defineProps({ open: Boolean });
 const emit = defineEmits(["close"]);
-function close() {
-  emit("close");
-}
+const close = () => emit("close");
 </script>

@@ -9,7 +9,7 @@
         class="absolute inset-0 h-full w-full object-cover"
       />
       <div
-        class="absolute inset-0 bg-gradient-to-t from-brand/20 to-transparent"
+        class="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent"
       />
 
       <div class="relative z-10 max-w-2xl px-4 mb-80 text-white">
@@ -85,12 +85,23 @@
         </li>
       </ul>
 
+      <div v-if="active.images && active.images.length" class="mt-6 space-y-4">
+        <img
+          v-for="img in active.images"
+          :key="img"
+          :src="`/images/${img}`"
+          class="w-full rounded-lg border border-gray-200 shadow"
+          loading="lazy"
+          :alt="`${active.title} screenshot`"
+        />
+      </div>
+
       <a
         :href="active.link"
         target="_blank"
         class="mt-6 inline-block rounded-lg bg-brand px-4 py-2 text-white hover:bg-brand/90"
       >
-        View Source
+        View More
       </a>
     </Modal>
   </main>
