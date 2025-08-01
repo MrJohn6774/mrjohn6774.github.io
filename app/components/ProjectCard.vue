@@ -1,12 +1,11 @@
 <template>
   <article
-    class="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-lg"
+    class="group relative flex cursor-pointer flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-lg"
+    @click="$emit('select')"
   >
     <div class="flex-1">
       <h3 class="text-lg font-semibold text-brand group-hover:underline">
-        <NuxtLink :to="project.link" target="_blank">{{
-          project.title
-        }}</NuxtLink>
+        {{ project.title }}
       </h3>
       <p class="mt-1 text-sm text-gray-500">{{ project.subtitle }}</p>
       <p class="mt-3 text-sm leading-relaxed">{{ project.description }}</p>
@@ -31,4 +30,5 @@ const props = defineProps({
     required: true,
   },
 });
+const emit = defineEmits(["select"]);
 </script>
